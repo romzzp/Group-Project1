@@ -17,10 +17,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  backdrop-filter: blur(15px);
 }
 
 .mainDiv {
+  backdrop-filter: blur(15px);
+}
+.space {
   padding-top: 300px;
 }
 
@@ -81,6 +83,6 @@ input {
 }
 
 #submitBtn {
-    background-color: var(--key-lime);
-    color: var(--keppel);
+  background-color: var(--key-lime);
+  color: var(--keppel);
 }
