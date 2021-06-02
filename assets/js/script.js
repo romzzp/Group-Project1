@@ -122,17 +122,38 @@ function createHotelCard(hotel){
     console.log(address, name, ratings, price)
     // populate with name, address, price, and ratings if possible
 
-    var hCardEl = document.createElement("div");
-    hCardEl.setAttribute("data-hotel-id", hotelId)
-    hCardEl.setAttribute("data-lat", hLat)
-    hCardEl.setAttribute("data-lon", hLon)
-    resultsEl.appendChild(hCardEl);
-    var hNameEl = document.createElement("h3");
-    hNameEl.textContent = name;
-    hCardEl.appendChild(hNameEl);
-    var hParaEl = document.createElement("p");
-    hParaEl.textContent = address + " | " + ratings + "⭐ | " + "price" ;
-    hCardEl.appendChild(hParaEl);
+    var cardDiv = document.createElement('div');
+    cardDiv.setAttribute('class', 'card');
+
+    var cardHeader = document.createElement('div');
+    cardHeader.setAttribute('class', 'card-header');
+
+    var cardContent = document.createElement('div');
+    cardContent.setAttribute('class', 'card-content p-2');
+
+    var cardFooter = document.createElement('div');
+    cardFooter.setAttribute('class', 'card-footer');
+
+    document.getElementsByClassName('mainDiv').append(cardDiv);
+    cardDiv.append(cardHeader);
+    cardHeader.insertAdjacentElement('afterend', cardContent);
+    cardContent.insertAdjacentElement('afterend', cardFooter);
+
+    cardHeader.textContent = name;
+    cardContent.textContent = `${address} | ${price}`;
+    cardFooter.textContent = `${ratings} ⭐`;
+
+    // var hCardEl = document.createElement("div");
+    // hCardEl.setAttribute("data-hotel-id", hotelId)
+    // hCardEl.setAttribute("data-lat", hLat)
+    // hCardEl.setAttribute("data-lon", hLon)
+    // resultsEl.appendChild(hCardEl);
+    // var hNameEl = document.createElement("h3");
+    // hNameEl.textContent = name;
+    // hCardEl.appendChild(hNameEl);
+    // var hParaEl = document.createElement("p");
+    // hParaEl.textContent = address + " | " + ratings + "⭐ | " + "price" ;
+    // hCardEl.appendChild(hParaEl);
 }
 
 
