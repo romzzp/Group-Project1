@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Date Picker //
 var autoupdate = false;
 
@@ -57,7 +56,7 @@ $('.date-picker').on('apply.daterangepicker', function(ev, picker) {
 $('#clear').click(function(){
  $('input.form-control').val('');
 });
-=======
+
 // ELEMENT SELECTORS
 var userInputEl = document.querySelector('[INPUT-ID]');
 
@@ -129,5 +128,9 @@ fetch("https://hotels-com-free.p.rapidapi.com/nice/image-catalog/v2/hotels/10634
 // USING LONG/LAT, SEARCH FOR HOTELS USING HOTEL API
 // IF POSSIBLE USE HOTEL API TO ALSO GET PICTURES
 // WHEN A HOTEL IS CHOSEN, CREATE A MAP USING GOOGLE MAPS API
+
 // GOOGLE MAPS USES HOTEL CHOSEN AS ITS CENTER AND LOOKS FOR TOURIST DESTINATIONS NEARBY
->>>>>>> 5cd8c9d6374f9c727d79ac03dc45996583ca0b12
+
+
+// GOOGLE MAPS USES HOTEL CHOSEN AS ITS CENTER AND LOOKS FOR TOURIST DESTINATIONS NEARBY
+
