@@ -1,3 +1,17 @@
+:root {
+/* CSS HEX */
+--key-lime: #d9ed92ff;
+--yellow-green-crayola: #b5e48cff;
+--granny-smith-apple: #99d98cff;
+--ocean-green: #76c893ff;
+--keppel: #52b69aff;
+--viridian-green: #34a0a4ff;
+--blue-munsell: #168aadff;
+--celadon-blue: #1a759fff;
+--lapis-lazuli: #1e6091ff;
+--yale-blue: #184e77ff;
+}
+
 body {
     background: url("../images/background.jpg");
     background-size: cover;
