@@ -8,3 +8,49 @@ body {
 h1 {
     color: blue;
 }
+
+/* Search Bar*/
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+}
+  
+input {
+    min-width: 20px;
+    padding: 8px;
+    margin: 0 4px 0 0;
+    border: 1px solid #666;
+    border-radius: 5px;
+    height: 30px;
+  }
+  
+.search-button {
+    padding: 8px 16px;
+    min-height: 48px;
+    min-width: 10px;
+    word-wrap: nowrap;
+    background: navy;
+    color: #fff;
+    border-radius: 5px;
+    flex: 0 1 auto;
+    align-self: auto;
+    width: 50%;
+  }
+  
+
+  
+.date-from {
+    flex: 1 1 auto;
+  }
+  
+.date-to {
+    flex: 1 1 auto;
+  }
+  
+
+  
