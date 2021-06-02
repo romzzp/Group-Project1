@@ -19,19 +19,20 @@ body {
   text-align: center;
   backdrop-filter: blur(15px);
 }
+
 .mainDiv {
-  margin-top: 300px;
+  padding-top: 300px;
 }
 
 h1 {
-  color: blue;
+  color: var(--yale-blue);
 }
 
 .container {
   padding-top: 50px;
 }
 /* Search Bar*/
-
+/* 
 .search-container {
   display: flex;
   flex-direction: row;
@@ -61,15 +62,15 @@ input {
   flex: 0 1 auto;
   align-self: auto;
   width: 50%;
-}
+} */
 
-.date-from {
+/* .date-from {
   flex: 1 1 auto;
 }
 
 .date-to {
   flex: 1 1 auto;
-}
+} */
 
 .show {
   display: block;
@@ -77,4 +78,9 @@ input {
 
 .hide {
   display: none;
+}
+
+#submitBtn {
+    background-color: var(--key-lime);
+    color: var(--keppel);
 }
