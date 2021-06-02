@@ -66,11 +66,12 @@ var locInputEl = document.querySelector('#locInput');
 // var roomNumEl = document.querySelector('#[ROOM-ID]')
 // var resultEl = document.querySelector('#[RESULTS-ID]')
 var buttonEl = document.querySelector('#submitBtn');
+
 // VARIABLES
 var locInput;
-var checkInDate = "2021-01-27";
-var checkOutDate = "2021-01-28";
-var roomNum = "1";
+var checkInDate = "2021-01-27"; // change so not hardcoded
+var checkOutDate = "2021-01-28"; // change so not hardcodded
+var roomNum = "1"; // change so not hardcoded
 
 
 // EVENT HANDLER
@@ -89,8 +90,8 @@ function formSubmitHandler(event) {
 
 
 // // FETCH APIS
-// Geocoder Portion
 
+// function to translate city names to geocode
 function geocodeApiFunc (loc) {
     var geocodeUrl = "https://geocode.search.hereapi.com/v1/geocode?q="+locInput+"&apiKey=D1Hv_zXz0JAD-U38n3BNT1zWKGjjPAFX9gsbKb2EwFw";
     fetch(geocodeUrl)
@@ -108,6 +109,7 @@ function geocodeApiFunc (loc) {
     
 }
 
+// function to get results from hotel api
 function hotelApiFunc (lat, lon, checkin, checkout, rooms){
     fetch("https://hotels-com-free.p.rapidapi.com/srle/listing/v1/brands/hotels.com?lat="+lat+"&lon="+lon+"&checkIn="+checkin+"&checkOut="+checkout+"&rooms="+rooms+"&locale=en_US&currency=CAD&pageNumber=1", {
         "method": "GET",
@@ -131,45 +133,47 @@ function hotelApiFunc (lat, lon, checkin, checkout, rooms){
     });
 }
 
+// function to create card for results gotten back from hotel api
 function createHotelCard(hotel){
-    var address = hotel.address.streetAddress
+    var address = hotel.address.streetAddress ;
     if (!address){
         address = "NO ADDRESS"
     }
-    var name = hotel.name
+    var name = hotel.name;
     if (!name){
-        name = "NO NAME"
+        name = "NO NAME";
     }
     var ratings = hotel.guestReviews
     if (!ratings){
-        ratings = "NO REVIEWS"
+        ratings = "NO REVIEWS";
     } else {
         ratings = hotel.guestReviews.rating
         if (!ratings){
-            ratings = "NO RATINGS"
+            ratings = "NO RATINGS";
         }
     }
     var price = hotel.ratePlan
     if (!price){
-        price = "NO PRICE"
+        price = "NO PRICE";
     } else {
         price = hotel.ratePlan.price.current
         if (!price){
-            price="NO PRICE"
+            price="NO PRICE";
         }
     }
 
     console.log(address, name, ratings, price)
     // populate with name, address, price, and ratings if possible
-    // var hotelEl = document.createElement("div");
-    // resultEl.appendChild(hotelEl);
-    // var hNameEl = document.createElement("p")
-    
 
+    var hCardEl = document.createElement("div");
+    resultsEl.appendChild(hCardEl);
+    var hNameEl = document.createElement("h3");
+    hNameEl.textContent = name;
+    hCardEl.appendChild(hNameEl);
+    var hParaEl = document.createElement("p");
+    hParaEl.textContent = address + " | " + ratings + "⭐ | " + "price" ;
+    hCardEl.appendChild(hParaEl);
 }
-
-// // Hotel Portion
-// // Search for hotel by geocode
 
 
 // // get hotel image
