@@ -1,79 +1,80 @@
 :root {
-/* CSS HEX */
---key-lime: #d9ed92ff;
---yellow-green-crayola: #b5e48cff;
---granny-smith-apple: #99d98cff;
---ocean-green: #76c893ff;
---keppel: #52b69aff;
---viridian-green: #34a0a4ff;
---blue-munsell: #168aadff;
---celadon-blue: #1a759fff;
---lapis-lazuli: #1e6091ff;
---yale-blue: #184e77ff;
+  /* CSS HEX */
+  --key-lime: #d9ed92ff;
+  --yellow-green-crayola: #b5e48cff;
+  --granny-smith-apple: #99d98cff;
+  --ocean-green: #76c893ff;
+  --keppel: #52b69aff;
+  --viridian-green: #34a0a4ff;
+  --blue-munsell: #168aadff;
+  --celadon-blue: #1a759fff;
+  --lapis-lazuli: #1e6091ff;
+  --yale-blue: #184e77ff;
 }
 
 body {
-    background: url("../images/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
+  background: url("../images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  backdrop-filter: blur(15px);
+}
+.mainDiv {
+  margin-top: 300px;
 }
 
 h1 {
-    color: blue;
+  color: blue;
 }
 
+.container {
+  padding-top: 50px;
+}
 /* Search Bar*/
 
 .search-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
 }
-  
+
 input {
-    min-width: 20px;
-    padding: 8px;
-    margin: 0 4px 0 0;
-    border: 1px solid #666;
-    border-radius: 5px;
-    height: 30px;
-  }
-  
+  min-width: 20px;
+  padding: 8px;
+  margin: 0 4px 0 0;
+  border: 1px solid #666;
+  border-radius: 5px;
+  height: 30px;
+}
+
 .search-button {
-    padding: 8px 16px;
-    min-height: 48px;
-    min-width: 10px;
-    word-wrap: nowrap;
-    background: navy;
-    color: #fff;
-    border-radius: 5px;
-    flex: 0 1 auto;
-    align-self: auto;
-    width: 50%;
-  }
-  
+  padding: 8px 16px;
+  min-height: 48px;
+  min-width: 10px;
+  word-wrap: nowrap;
+  background: navy;
+  color: #fff;
+  border-radius: 5px;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 50%;
+}
 
-  
 .date-from {
-    flex: 1 1 auto;
-  }
-  
-.date-to {
-    flex: 1 1 auto;
-  }
-  
+  flex: 1 1 auto;
+}
 
-  
+.date-to {
+  flex: 1 1 auto;
+}
 
 .show {
-    display: block;
+  display: block;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
-
