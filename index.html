@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Calendar-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Plan Your Vacay</title>
 </head>
@@ -23,15 +23,24 @@
         <main>
             <div class="container col-8">
                 <form>
-                    <div class="search-container">
-                        <input type="text" id="locInput" class="date-from" placeholder="To">
-                        <input type="text" placeholder="Depart" name="daterange" class="form-control date-picker"
+                    <!-- <div class="search-container"> -->
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Destination</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-lg">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Date From</span>
+                        <input type="text" class="form-control" id="datepicker" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-lg">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Date To</span>
+                        <input type="text" class="form-control" id="datepicker2" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-lg">
+                        <!-- <input type="text" placeholder="Depart" name="daterange" class="form-control date-picker"
                             id="date-picker" />
                         <input type="text" placeholder="Return" name="daterange" class="form-control date-picker-2"
-                            id="date date-picker-2" />
+                            id="date date-picker-2" /> -->
                     </div>
                     <br>
-                    <button type="submit" id="submitBtn" class="search-button">Search</button>
+                    <button type="submit" id="submitBtn" class="search-button">Go!</button>
 
                 </form>
             </div>
@@ -58,12 +67,10 @@
     <footer>
 
     </footer>
-    
+
     <!-- Include Date Range Picker -->
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./assets/js/script.js"></script>
 
 </body>
