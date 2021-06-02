@@ -10,8 +10,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
     <!-- Include Date Range Picker -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <!-- Bootstrap -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
@@ -20,26 +22,26 @@
 </head>
 
 <body>
-    <header>
-        <h1>Plan Your Vacation</h1>
-    </header>
+    <div class="mainDiv">
+        <header>
+            <h1>Plan Your Vacation</h1>
+        </header>
 
-    <main>
-        <h2>Start Here</h2>
-        <!--Multiple Searches-->
-        <div class="container">
-            <form>
-                <div class="search-container">
-                  <input type="text" class="search" placeholder="From">
-                  <input type="text" id = "locInput" class="date-from" placeholder="To">
-                  <input type="text" placeholder="Depart" name="daterange" class="form-control date-picker" id="date-picker" />
-                  <input type="text" placeholder="Return" name="daterange" class="form-control date-picker-2" id="date date-picker-2" />
-                </div>
-                <br>
-                  <button type="submit" id = "submitBtn" class="search-button">Search</button>
-                
-             </form>
-        </div>
+        <main>
+            <div class="container col-8">
+                <form>
+                    <div class="search-container">
+                        <input type="text" id="locInput" class="date-from" placeholder="To">
+                        <input type="text" placeholder="Depart" name="daterange" class="form-control date-picker"
+                            id="date-picker" />
+                        <input type="text" placeholder="Return" name="daterange" class="form-control date-picker-2"
+                            id="date date-picker-2" />
+                    </div>
+                    <br>
+                    <button type="submit" id="submitBtn" class="search-button">Search</button>
+
+                </form>
+            </div>
             <!--<form>
                 <div class="input-group input-group-lg">
                     <span class="input-group-text" id="inputGroup-sizing-lg">Enter Destination</span>
@@ -57,7 +59,8 @@
                 
             </form>-->
 
-    </main>
+        </main>
+    </div>
 
     <footer>
 
