@@ -57,14 +57,15 @@ $('#clear').click(function(){
  $('input.form-control').val('');
 });
 
+
+// // ELISONS PORTION
 // ELEMENT SELECTORS
 var locInputEl = document.querySelector('#locInput');
-var dateInEl = document.querySelector('#[CHECK-IN-DATE-ID]');
-var dateOutEl = document.querySelector('#[CHECK-OUT-DATE-ID');
-var roomNumEl = document.querySelector('#[ROOM-ID]')
+// var dateInEl = document.querySelector('#[CHECK-IN-DATE-ID]');
+// var dateOutEl = document.querySelector('#[CHECK-OUT-DATE-ID');
+// var roomNumEl = document.querySelector('#[ROOM-ID]')
+// var resultEl = document.querySelector('#[RESULTS-ID]')
 var buttonEl = document.querySelector('#submitBtn');
-var resultEl = document.querySelector('#[RESULTS-ID]')
-
 // VARIABLES
 var locInput;
 var checkInDate = "2021-01-27";
@@ -130,9 +131,42 @@ function hotelApiFunc (lat, lon, checkin, checkout, rooms){
     });
 }
 
-// function createHotelCard(hotel){
-//     var hotelEl =
-// }
+function createHotelCard(hotel){
+    var address = hotel.address.streetAddress
+    if (!address){
+        address = "NO ADDRESS"
+    }
+    var name = hotel.name
+    if (!name){
+        name = "NO NAME"
+    }
+    var ratings = hotel.guestReviews
+    if (!ratings){
+        ratings = "NO REVIEWS"
+    } else {
+        ratings = hotel.guestReviews.rating
+        if (!ratings){
+            ratings = "NO RATINGS"
+        }
+    }
+    var price = hotel.ratePlan
+    if (!price){
+        price = "NO PRICE"
+    } else {
+        price = hotel.ratePlan.price.current
+        if (!price){
+            price="NO PRICE"
+        }
+    }
+
+    console.log(address, name, ratings, price)
+    // populate with name, address, price, and ratings if possible
+    // var hotelEl = document.createElement("div");
+    // resultEl.appendChild(hotelEl);
+    // var hNameEl = document.createElement("p")
+    
+
+}
 
 // // Hotel Portion
 // // Search for hotel by geocode
