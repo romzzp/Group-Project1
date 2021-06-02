@@ -63,7 +63,6 @@ $('#clear').click(function(){
 var locInputEl = document.querySelector('#locInput');
 // var dateInEl = document.querySelector('#[CHECK-IN-DATE-ID]');
 // var dateOutEl = document.querySelector('#[CHECK-OUT-DATE-ID');
-// var roomNumEl = document.querySelector('#[ROOM-ID]')
 // var resultEl = document.querySelector('#[RESULTS-ID]')
 var buttonEl = document.querySelector('#submitBtn');
 
@@ -71,7 +70,7 @@ var buttonEl = document.querySelector('#submitBtn');
 var locInput;
 var checkInDate = "2021-01-27"; // change so not hardcoded
 var checkOutDate = "2021-01-28"; // change so not hardcodded
-var roomNum = "1"; // change so not hardcoded
+var roomNum = "1";
 
 
 // EVENT HANDLER
@@ -134,7 +133,11 @@ function hotelApiFunc (lat, lon, checkin, checkout, rooms){
 }
 
 // function to create card for results gotten back from hotel api
+// need to stick hotelid somewhere
 function createHotelCard(hotel){
+    var hotelId = hotel.id;
+    var hLat = hotel.coordinate.lat
+    var hLon = hotel.coordinate.lon
     var address = hotel.address.streetAddress ;
     if (!address){
         address = "NO ADDRESS"
@@ -166,6 +169,9 @@ function createHotelCard(hotel){
     // populate with name, address, price, and ratings if possible
 
     var hCardEl = document.createElement("div");
+    hCardEl.setAttribute("data-hotel-id", hotelId)
+    hCardEl.setAttribute("data-lat", hLat)
+    hCardEl.setAttribute("data-lon", hLon)
     resultsEl.appendChild(hCardEl);
     var hNameEl = document.createElement("h3");
     hNameEl.textContent = name;
@@ -176,23 +182,42 @@ function createHotelCard(hotel){
 }
 
 
-// // get hotel image
-// // NOTE: TRY PUTTING IN A TIMER TO DELAY BY A FEW SECONDS
-// fetch("https://hotels-com-free.p.rapidapi.com/nice/image-catalog/v2/hotels/106346", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-key": "475606eb04msh3305527aef63460p1ea2ccjsn5d20c76f0ac9",
-// 		"x-rapidapi-host": "hotels-com-free.p.rapidapi.com"
-// 	}
-// })
-// .then(function (response) {
-//     response.json().then(function (responsejson){
-//         console.log(responsejson.data);
-//     })
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
+// HOTEL IMAGE API
+// returns an url for an image of the room
+// NOTE: TRY PUTTING IN A TIMER TO DELAY BY A FEW SECONDS
+// NOTE: TRY USING the data-hotel-id attribute to get the hId
+function fetchHotelImage(hId){
+    fetch("https://hotels-com-free.p.rapidapi.com/nice/image-catalog/v2/hotels/"+hId, {
+    	"method": "GET",
+	    "headers": {
+		    "x-rapidapi-key": "475606eb04msh3305527aef63460p1ea2ccjsn5d20c76f0ac9",
+		    "x-rapidapi-host": "hotels-com-free.p.rapidapi.com"
+	    }
+    })
+    .then(function (response) {
+        response.json().then(function (responsejson){
+            var imgsrc = responsejson.hotelImages[0].baseUrl;
+            newImgsrc = imgsrc.replace("_{size}", "")
+            return (newImgsrc)
+        })
+    })
+    .catch(function(error){
+	    console.log(error);
+    })
+}
+
+//  NOTE: TO CREATE MARKERS
+function createMarker(place) {
+  if (!place.geometry || !place.geometry.location) return;
+  const marker = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+  google.maps.event.addListener(marker, "click", () => {
+    infowindow.setContent(place.name || "");
+    infowindow.open(map);
+  });
+}
 
 
 // CREATE CARDS FOR RESULTS
