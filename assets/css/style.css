@@ -17,6 +17,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
+  font-family: "Comfortaa", cursive;
 }
 
 .mainDiv {
@@ -40,6 +41,10 @@ h1 {
 #datepicker,
 #datepicker2 {
   height: auto;
+  background: transparent;
+}
+#inputGroup-sizing-lg {
+  background: var(--yellow-green-crayola);
 }
 /* Search Bar*/
 /* 
