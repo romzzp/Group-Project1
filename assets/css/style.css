@@ -96,6 +96,14 @@ input {
 }
 
 #submitBtn {
+  padding-left: 100px;
+  padding-right: 100px;
+  color: var(--yale-blue);
+  border-color: var(--yale-blue);
+}
+
+#submitBtn:hover {
   background-color: var(--key-lime);
-  color: var(--keppel);
+  color: var(--yale-blue);
+  border-color: var(--yale-blue);
 }
