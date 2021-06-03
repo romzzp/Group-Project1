@@ -86,12 +86,27 @@ function hotelApiFunc (lat, lon, checkin, checkout, rooms){
     });
 }
 
+//Variable to test hotel cards
+var dummyHotel = {
+    address: {
+        streetAddress: '123 Somewhere St.'
+    },
+    name: 'Dummy Hotel',
+    ratePlan: {
+        price: {
+            current: "$1,000"
+        }
+    },
+    guestReviews: {
+        rating: "1 Star"
+    }
+}
 // function to create card for results gotten back from hotel api
 // need to stick hotelid somewhere
 function createHotelCard(hotel){
-    var hotelId = hotel.id;
-    var hLat = hotel.coordinate.lat
-    var hLon = hotel.coordinate.lon
+    // var hotelId = hotel.id;
+    // var hLat = hotel.coordinate.lat
+    // var hLon = hotel.coordinate.lon
     var address = hotel.address.streetAddress ;
     if (!address){
         address = "NO ADDRESS"
@@ -122,19 +137,41 @@ function createHotelCard(hotel){
     console.log(address, name, ratings, price)
     // populate with name, address, price, and ratings if possible
 
-    var hCardEl = document.createElement("div");
-    hCardEl.setAttribute("data-hotel-id", hotelId)
-    hCardEl.setAttribute("data-lat", hLat)
-    hCardEl.setAttribute("data-lon", hLon)
-    resultsEl.appendChild(hCardEl);
-    var hNameEl = document.createElement("h3");
-    hNameEl.textContent = name;
-    hCardEl.appendChild(hNameEl);
-    var hParaEl = document.createElement("p");
-    hParaEl.textContent = address + " | " + ratings + "⭐ | " + "price" ;
-    hCardEl.appendChild(hParaEl);
+    var cardDiv = document.createElement('div');
+    cardDiv.setAttribute('class', 'card');
+
+    var cardHeader = document.createElement('div');
+    cardHeader.setAttribute('class', 'card-header');
+
+    var cardContent = document.createElement('div');
+    cardContent.setAttribute('class', 'card-content p-2');
+
+    var cardFooter = document.createElement('div');
+    cardFooter.setAttribute('class', 'card-footer');
+
+    document.getElementsByClassName('mainDiv')[0].append(cardDiv);
+    cardDiv.append(cardHeader);
+    cardHeader.insertAdjacentElement('afterend', cardContent);
+    cardContent.insertAdjacentElement('afterend', cardFooter);
+
+    cardHeader.textContent = name;
+    cardContent.textContent = `${address} | ${price}`;
+    cardFooter.textContent = `${ratings} ⭐`;
+
+    // var hCardEl = document.createElement("div");
+    // hCardEl.setAttribute("data-hotel-id", hotelId)
+    // hCardEl.setAttribute("data-lat", hLat)
+    // hCardEl.setAttribute("data-lon", hLon)
+    // resultsEl.appendChild(hCardEl);
+    // var hNameEl = document.createElement("h3");
+    // hNameEl.textContent = name;
+    // hCardEl.appendChild(hNameEl);
+    // var hParaEl = document.createElement("p");
+    // hParaEl.textContent = address + " | " + ratings + "⭐ | " + "price" ;
+    // hCardEl.appendChild(hParaEl);
 }
 
+createHotelCard(dummyHotel);
 
 // HOTEL IMAGE API
 // returns an url for an image of the room
