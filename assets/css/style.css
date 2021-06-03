@@ -36,6 +36,11 @@ h1 {
 .container {
   padding-top: 50px;
 }
+#locInput,
+#datepicker,
+#datepicker2 {
+  height: auto;
+}
 /* Search Bar*/
 /* 
 .search-container {
