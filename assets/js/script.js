@@ -211,4 +211,3 @@ buttonEl.addEventListener('click', formSubmitHandler);
 
 
 // GOOGLE MAPS USES HOTEL CHOSEN AS ITS CENTER AND LOOKS FOR TOURIST DESTINATIONS NEARBY
-
