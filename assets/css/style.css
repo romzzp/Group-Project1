@@ -28,6 +28,7 @@ body {
 }
 .cardContainer {
   width: 50%;
+  padding-top: 50px;
 }
 
 h1 {
@@ -45,6 +46,20 @@ h1 {
 }
 #inputGroup-sizing-lg {
   background: var(--yellow-green-crayola);
+}
+
+.card,
+.card-header {
+  background: transparent;
+}
+.card-header {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.card-footer {
+  justify-content: space-around;
+  font-weight: bolder;
 }
 /* Search Bar*/
 /* 
