@@ -86,12 +86,27 @@ function hotelApiFunc (lat, lon, checkin, checkout, rooms){
     });
 }
 
+//Variable to test hotel cards
+var dummyHotel = {
+    address: {
+        streetAddress: '123 Somewhere St.'
+    },
+    name: 'Dummy Hotel',
+    ratePlan: {
+        price: {
+            current: "$1,000"
+        }
+    },
+    guestReviews: {
+        rating: "1 Star"
+    }
+}
 // function to create card for results gotten back from hotel api
 // need to stick hotelid somewhere
 function createHotelCard(hotel){
-    var hotelId = hotel.id;
-    var hLat = hotel.coordinate.lat
-    var hLon = hotel.coordinate.lon
+    // var hotelId = hotel.id;
+    // var hLat = hotel.coordinate.lat
+    // var hLon = hotel.coordinate.lon
     var address = hotel.address.streetAddress ;
     if (!address){
         address = "NO ADDRESS"
@@ -134,7 +149,7 @@ function createHotelCard(hotel){
     var cardFooter = document.createElement('div');
     cardFooter.setAttribute('class', 'card-footer');
 
-    document.getElementsByClassName('mainDiv').append(cardDiv);
+    document.getElementsByClassName('mainDiv')[0].append(cardDiv);
     cardDiv.append(cardHeader);
     cardHeader.insertAdjacentElement('afterend', cardContent);
     cardContent.insertAdjacentElement('afterend', cardFooter);
@@ -156,6 +171,7 @@ function createHotelCard(hotel){
     // hCardEl.appendChild(hParaEl);
 }
 
+createHotelCard(dummyHotel);
 
 // HOTEL IMAGE API
 // returns an url for an image of the room
