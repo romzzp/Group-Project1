@@ -25,6 +25,9 @@ body {
 .space {
   padding-top: 300px;
 }
+.cardContainer {
+  width: 50%;
+}
 
 h1 {
   color: var(--yale-blue);
