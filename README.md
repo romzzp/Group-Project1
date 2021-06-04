@@ -1,29 +1,39 @@
 ## Vacation Planner Overview
 
-Planning your vacation made easy with this website that will help you find Hotels around the world! Wherever you go, we’re here for you. Explore 1000s of global hotels and resorts when planning your trip. This site uses APi such as Hotel.com and Maps to find the accomodation in the cities or countries a user is planning to visit. 
+Planning your vacation has never been easier with this website that will help you find hotels around the world! Wherever you go, we're here for you, Explore thousands of global hotels and resorts when planning your trip. This stie uses data from APIs to find the accomodations and attractions no matter where in the world you are planning to visit.
 
-## API Used
+## APIs Used
 ```
 The following APIs are used in this website:
 
-* [Hotel IMAGE APIs](https://hotels-com-free.p.rapidapi.com/srle/listing/v1/brands/hotels.com?lat=)
- 
-* [Hotel IMAGE APIs] (https://hotels-com-free.p.rapidapi.com/nice/image-catalog/v2/hotels/)
+* [Hotel.com Data API](https://rapidapi.com/yahoo.finance.low.latency/api/hotels-com-free)
 
-* [MAP APIs] (https://developers.google.com/maps)
+* [Google Map API] (https://developers.google.com/maps)
 
-* [GEO Coder] (https://developer.here.com/documentation/geocoding-search-api/dev_guide/index.html)
+* [Geocode API] (https://developer.here.com/documentation/geocoding-search-api/dev_guide/index.html)
+
+```
+
+## Languages Used
+
+HTML
+CSS
+Javascript
+
+## Deployed Links
+```
 
 * [GITHUB LINK] (https://github.com/romzzp/Group-Project1)
 
 * [Demo site] (https://romzzp.github.io/Group-Project1/)
+
 ```
 
 ## User Story
 
-AS a traveller planning a trip to visit a new city or country,
-I want to find hotels that are avalaible during the dates I selected at the desired location
-so that when I arrive, I am in the hotspot to explore the city and not waste time trying to figure out accommodation.
+AS A leisure traveller planning my next trip.
+I WANT to search for available hotels at my destination, see where that hotel is located, and what attractions are around the hotel.
+SO THAT I can make a informed decision about where to stay and maximize the amount of attractions I am able to visit.
 
 ## Mockup
 
@@ -33,12 +43,10 @@ The following animation demonstrates the application functionality:
 
 How to: 
 GIVEN I am planning a vacation
-WHEN  I enter the destination countries or cities (ex, Toronto, Sydney, Moscow, Turkey etc)
-THEN all the hotels in the geo-loacation show up
-WHEN I chose the date filters (Date To and From)
-THEN all avaliable hotels are filtered 
-WHEN I choose the hotel of choice
-THEN the hotel map location shows up
+WHEN I enter the destination city I want to go to (ex, Toronto, Sydney, Moscow, Turkey etc) and the dates I want to visit for
+THEN A list of hotels are displayed for me to choose from
+WHEN I choose a hotel that is suitible for me
+THEN A map centered around the location of the hotel shows up, indicating nearby tourist destinations and popular spots.
 
 - - -
 © 2021. All Rights Reserved.
