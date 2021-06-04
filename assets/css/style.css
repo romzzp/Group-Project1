@@ -58,7 +58,6 @@ h1 {
 }
 
 .cardContainer {
-  width: 50%;
   padding-top: 50px;
 }
 
@@ -70,6 +69,10 @@ h1 {
 .card-header {
   font-size: 20px;
   text-decoration: underline;
+}
+
+.mapContainer {
+  overflow:visible
 }
 
 .card-content {
@@ -117,6 +120,7 @@ h1 {
   color: var(--yale-blue);
   border-color: var(--yale-blue);
 }
+
 
 /*
  rgba(118, 200, 174, 0.5);
