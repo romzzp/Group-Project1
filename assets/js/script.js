@@ -16,7 +16,6 @@ $(function () {
 );
 
 
-// // ELISONS PORTION
 // ELEMENT SELECTORS
 var locInputEl = document.querySelector('#locInput');
 var dateInEl = document.querySelector('#datepicker');
@@ -24,32 +23,19 @@ var dateOutEl = document.querySelector('#datepicker2');
 var resultEl = document.querySelector('#cardContainer')
 var buttonEl = document.querySelector('#submitBtn');
 var mapDivEl = document.getElementById("map")
+var dynaEl = document.querySelector("#dynamicCard")
 var choiceEl 
 
 // VARIABLES
 var locInput;
-var checkInDate ; // change so not hardcoded
-var checkOutDate ; // change so not hardcodded
+var checkInDate ; 
+var checkOutDate ; 
 var roomNum = "1";
 var map;
 var service;
 var infowindow;
 
 
-// EVENT HANDLER
-function formSubmitHandler(event) {
-    event.preventDefault();
-
-    locInput = locInputEl.value.trim();
-    checkInDate = dateInEl.value.trim();
-    checkOutDate = dateInEl.value.trim();
-
-    geocodeApiFunc(locInput);
-    choiceEl = document.querySelectorAll(".choice-btn");
-    resultEl.addEventListener("click", chooseHotelClick);
-
-
-}
 
 
 // // FETCH APIS
@@ -88,7 +74,6 @@ function hotelApiFunc(lat, lon, checkin, checkout, rooms) {
                 for (var i = 0; i < hotelList.length; i++) {
                     createHotelCard(hotelList[i])
                 }
-                // USING THIS LIST, POPULATE WITH A CARD MAKER
             })
         })
         .catch(function (error) {
@@ -96,28 +81,38 @@ function hotelApiFunc(lat, lon, checkin, checkout, rooms) {
         });
 }
 
-//Variable to test hotel cards
-// var dummyHotel = {
-//     address: {
-//         streetAddress: '123 Somewhere St.'
-//     },
-//     name: 'Dummy Hotel',
-//     ratePlan: {
-//         price: {
-//             current: "$1,000"
+// HOTEL IMAGE API MAY NOT USE
+// returns an url for an image of the room
+// NOTE: TRY PUTTING IN A TIMER TO DELAY BY A FEW SECONDS
+// NOTE: TRY USING the data-hotel-id attribute to get the hId
+// function fetchHotelImage(hId) {
+//     fetch("https://hotels-com-free.p.rapidapi.com/nice/image-catalog/v2/hotels/" + hId, {
+//         "method": "GET",
+//         "headers": {
+//             "x-rapidapi-key": "475606eb04msh3305527aef63460p1ea2ccjsn5d20c76f0ac9",
+//             "x-rapidapi-host": "hotels-com-free.p.rapidapi.com"
 //         }
-//     },
-//     guestReviews: {
-//         rating: "1 Star"
-//     }
+//     })
+//         .then(function (response) {
+//             response.json().then(function (responsejson) {
+//                 var imgsrc = responsejson.hotelImages[0].baseUrl;
+//                 newImgsrc = imgsrc.replace("_{size}", "")
+//                 return (newImgsrc)
+//             })
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         })
 // }
-// function to create card for results gotten back from hotel api
-// need to stick hotelid somewhere
+
+// function to create the hotel cards
 function createHotelCard(hotel) {
+    // data to be used later
     var hotelId = hotel.id;
     var hLat = hotel.coordinate.lat
     var hLon = hotel.coordinate.lon
     var pstl = hotel.address.postalCode
+    // ignore cases
     if (!pstl) {
         return;    
     }
@@ -150,7 +145,9 @@ function createHotelCard(hotel) {
     }
 
     console.log(address, name, ratings, price)
-    // populate with name, address, price, and ratings if possible
+
+    // card creation portion
+
 
     var cardDiv = document.createElement('div');
     cardDiv.setAttribute('class', 'card');
@@ -171,7 +168,7 @@ function createHotelCard(hotel) {
     var cardBtn = document.createElement('button')
     cardBtn.setAttribute('class', 'choice-btn');
 
-    resultEl.append(cardDiv);
+    dynaEl.append(cardDiv);
     cardDiv.append(cardHeader);
     cardDiv.append(cardBtn)
     cardHeader.insertAdjacentElement('afterend', cardContent);
@@ -181,48 +178,10 @@ function createHotelCard(hotel) {
     cardContent.textContent = `${address} | ${price}`;
     cardFooter.textContent = `${ratings} ⭐`;
     cardBtn.textContent = "CHOOSE"
-
-    // var hCardEl = document.createElement("div");
-    // hCardEl.setAttribute("data-hotel-id", hotelId)
-    // hCardEl.setAttribute("data-lat", hLat)
-    // hCardEl.setAttribute("data-lon", hLon)
-    // resultsEl.appendChild(hCardEl);
-    // var hNameEl = document.createElement("h3");
-    // hNameEl.textContent = name;
-    // hCardEl.appendChild(hNameEl);
-    // var hParaEl = document.createElement("p");
-    // hParaEl.textContent = address + " | " + ratings + "⭐ | " + "price" ;
-    // hCardEl.appendChild(hParaEl);
 }
 
-// createHotelCard(dummyHotel);
 
-// HOTEL IMAGE API MAY NOT USE
-// returns an url for an image of the room
-// NOTE: TRY PUTTING IN A TIMER TO DELAY BY A FEW SECONDS
-// NOTE: TRY USING the data-hotel-id attribute to get the hId
-// function fetchHotelImage(hId) {
-//     fetch("https://hotels-com-free.p.rapidapi.com/nice/image-catalog/v2/hotels/" + hId, {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-key": "475606eb04msh3305527aef63460p1ea2ccjsn5d20c76f0ac9",
-//             "x-rapidapi-host": "hotels-com-free.p.rapidapi.com"
-//         }
-//     })
-//         .then(function (response) {
-//             response.json().then(function (responsejson) {
-//                 var imgsrc = responsejson.hotelImages[0].baseUrl;
-//                 newImgsrc = imgsrc.replace("_{size}", "")
-//                 return (newImgsrc)
-//             })
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//         })
-// }
-
-// CREATE CARDS FOR RESULTS
-
+// function to render the google maps api
 function displayMap(lat, lng, pstl){
     var hotelArea = new google.maps.LatLng(lat, lng);
     infowindow = new google.maps.InfoWindow();
@@ -258,7 +217,7 @@ function displayMap(lat, lng, pstl){
 }
 
 
-//  NOTE: TO CREATE MARKERS
+//  Function to create markers on map
 function createMarker(place) {
     if (!place.geometry || !place.geometry.location){
           return;
@@ -267,12 +226,32 @@ function createMarker(place) {
         map,
         position: place.geometry.location,
     });
-    google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(place.name || "");
-        infowindow.open(map);
-    });
 }
 
+// EVENT HANDLER
+function formSubmitHandler(event) {
+    event.preventDefault();
+
+    locInput = locInputEl.value.trim();
+    checkInDate = dateInEl.value.trim();
+    checkOutDate = dateInEl.value.trim();
+    
+
+    if (!locInput || !checkInDate || !checkOutDate){
+        return;
+    }
+
+    dynaEl.remove();
+    dynaEl = document.createElement('div');
+    dynaEl.setAttribute("id", "dynamicCard")
+    resultEl.append(dynaEl)
+
+    geocodeApiFunc(locInput);
+    choiceEl = document.querySelectorAll(".choice-btn");
+    resultEl.addEventListener("click", chooseHotelClick);
+}
+
+// event handler for when hotel card button is clicked
 function chooseHotelClick(event){
     var targetClass = event.target.getAttribute("class");
     if (targetClass !== "choice-btn"){
@@ -287,16 +266,6 @@ function chooseHotelClick(event){
     displayMap(lat, lon, pstl);
 }
 
+
+// EVENT LISTENERS
 buttonEl.addEventListener('click', formSubmitHandler);
-
-
-// FROM INPUT VALUE
-// GO TO GEOCODE API TO GET LONG/LAT
-// USING LONG/LAT, SEARCH FOR HOTELS USING HOTEL API
-// IF POSSIBLE USE HOTEL API TO ALSO GET PICTURES
-// WHEN A HOTEL IS CHOSEN, CREATE A MAP USING GOOGLE MAPS API
-
-// GOOGLE MAPS USES HOTEL CHOSEN AS ITS CENTER AND LOOKS FOR TOURIST DESTINATIONS NEARBY
-
-
-// GOOGLE MAPS USES HOTEL CHOSEN AS ITS CENTER AND LOOKS FOR TOURIST DESTINATIONS NEARBY
