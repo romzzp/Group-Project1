@@ -1,40 +1,35 @@
-# Vacation Planner
-## Overview
+## Vacation Planner Overview
 
 Planning your vacation made easy with this website that will help you find Hotels around the world! Wherever you go, we’re here for you. Explore 1000s of global hotels and resorts when planning your trip. This site uses APi such as Hotel.com and Maps to find the accomodation in the cities or countries a user is planning to visit. 
 
 ## API Used
-
 ```
-
 The following APIs are used in this website:
 
-* [Hotel APIs](https://hotels-com-free.p.rapidapi.com/srle/listing/v1/brands/hotels.com?lat=)* 
+* [Hotel IMAGE APIs](https://hotels-com-free.p.rapidapi.com/srle/listing/v1/brands/hotels.com?lat=)
+ 
+* [Hotel IMAGE APIs] (https://hotels-com-free.p.rapidapi.com/nice/image-catalog/v2/hotels/)
 
-* [MAP APIs] (NEED TO ADD)
+* [MAP APIs] (https://developers.google.com/maps)
 
-* [Git workflow](https://github.com/romzzp/Group-Project1)
+* [GEO Coder] (https://developer.here.com/documentation/geocoding-search-api/dev_guide/index.html)
 
-* [Demo site] (LIVESITE URL NEEDS TO BE ADDED)
+* [GITHUB LINK] (https://github.com/romzzp/Group-Project1)
 
-### User Story
-
+* [Demo site] (https://romzzp.github.io/Group-Project1/)
 ```
+
+## User Story
+
 AS a traveller planning a trip to visit a new city or country,
 I want to find hotels that are avalaible during the dates I selected at the desired location
-SO THAT when I arrive, I am in the hotspot to explore the city and not waste time trying to figure out accommodation.
+so that when I arrive, I am in the hotspot to explore the city and not waste time trying to figure out accommodation.
 
-
-
-#### Mockup
-
-```
+## Mockup
 
 The following animation demonstrates the application functionality:
+![A user clicks through website, then puts in the desired location and hotels shows up. User can then select the hotel they want to 9 in and the map will show up on the right side.](.\assets\images\plan_vacation_demo.gif)
 
-![A user clicks through website, then puts in the desired location and hotels shows up. User can then select the hotel they want to check in and the map will show up on the right side]
-
-(./Assets/NEEDTOADDDEMO)
 
 How to: 
 GIVEN I am planning a vacation
