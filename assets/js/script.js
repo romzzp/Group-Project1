@@ -259,9 +259,10 @@ function formSubmitHandler(event) {
 // event handler for when hotel card button is clicked
 function chooseHotelClick(event) {
     var targetClass = event.target.getAttribute("class");
-    if (targetClass !== "choice-btn") {
+    if (targetClass !== "choice-btn btn btn-outline-primary") {
         return;
     }
+
     hotelListSave = hotelList
     var cardContainer = event.target.parentElement;
     console.log(cardContainer);
