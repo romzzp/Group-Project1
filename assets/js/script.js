@@ -166,10 +166,10 @@ function createHotelCard(hotel) {
     cardContent.setAttribute('class', 'card-content p-2');
 
     var cardFooter = document.createElement('div');
-    cardFooter.setAttribute('class', 'card-footer d-grid gap-2');
+    cardFooter.setAttribute('class', 'card-footer');
 
     var cardBtn = document.createElement('button')
-    cardBtn.setAttribute('class', 'choice-btn btn btn-outline-primary btn-sm m-1');
+    cardBtn.setAttribute('class', 'choice-btn btn btn-outline-primary btn-sm d-grid gap-2');
 
     resultEl.append(cardDiv);
     cardDiv.append(cardHeader);
