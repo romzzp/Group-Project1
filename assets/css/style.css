@@ -46,10 +46,12 @@ h1 {
 #datepicker,
 #datepicker2 {
   height: auto;
-  background: transparent;
+  background-color: var(--yale-blue);
+  color: white;
 }
 #inputGroup-sizing-lg {
   background: var(--yellow-green-crayola);
+  color: var(--yale-blue);
 }
 #map {
     height:100%;
@@ -60,64 +62,39 @@ h1 {
   padding-top: 50px;
 }
 
-.card-content {
-  background-color: rgba(118, 200, 174, 0.5);
-}
-
 .card,
 .card-header {
-  background: transparent;
+  background: var(--yellow-green-crayola);
+  color: var(--yale-blue);
 }
 .card-header {
-  font-weight: bolder;
+  font-size: 20px;
   text-decoration: underline;
 }
 
+.card-content {
+  background-color: var(--yale-blue);
+  color: white;
+}
+
 .card-footer {
+  background-color: var(--yale-blue);
+  color: white;
   justify-content: space-around;
-  font-weight: bolder;
 }
 
-/* Search Bar*/
-/* 
-.search-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: flex-start;
+.choice-btn {
+  margin: 5px 0px 5px 0px;
+  color: var(--yale-blue);
+  border-color: var(--yale-blue);
+  background-color: white;
 }
 
-input {
-  min-width: 20px;
-  padding: 8px;
-  margin: 0 4px 0 0;
-  border: 1px solid #666;
-  border-radius: 5px;
-  height: 30px;
+.choice-btn:hover {
+  color: var(--yellow-green-crayola);
+  border-color: var(--yellow-green-crayola);
+  background-color: var(--yale-blue);
 }
-
-.search-button {
-  padding: 8px 16px;
-  min-height: 48px;
-  min-width: 10px;
-  word-wrap: nowrap;
-  background: navy;
-  color: #fff;
-  border-radius: 5px;
-  flex: 0 1 auto;
-  align-self: auto;
-  width: 50%;
-} */
-
-/* .date-from {
-  flex: 1 1 auto;
-}
-
-.date-to {
-  flex: 1 1 auto;
-} */
 
 .show {
   display: block;
@@ -130,8 +107,9 @@ input {
 #submitBtn {
   padding-left: 100px;
   padding-right: 100px;
-  color: var(--yale-blue);
-  border-color: var(--yale-blue);
+  color: white;
+  border-color: white;
+  font-size: 25px;
 }
 
 #submitBtn:hover {
@@ -139,3 +117,7 @@ input {
   color: var(--yale-blue);
   border-color: var(--yale-blue);
 }
+
+/*
+ rgba(118, 200, 174, 0.5);
+ */

@@ -168,7 +168,10 @@ function createHotelCard(hotel, hotelNum) {
     cardFooter.setAttribute('class', 'card-footer');
 
     var cardBtn = document.createElement('button')
-    cardBtn.setAttribute('class', 'choice-btn');
+
+ 
+    cardBtn.setAttribute('class', 'choice-btn btn btn-outline-primary');
+
 
     dynaEl.append(cardDiv);
     cardDiv.append(cardHeader);
