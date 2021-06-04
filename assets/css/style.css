@@ -46,10 +46,12 @@ h1 {
 #datepicker,
 #datepicker2 {
   height: auto;
-  background: transparent;
+  background-color: var(--yale-blue);
+  color: white;
 }
 #inputGroup-sizing-lg {
   background: var(--yellow-green-crayola);
+  color: var(--yale-blue);
 }
 #map {
     height:100%;
