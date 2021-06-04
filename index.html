@@ -46,9 +46,9 @@
                             id="date date-picker-2" /> -->
                     </div>
                     <br>
-                    
+
                     <button type="submit" id="submitBtn" class="search-button btn btn-outline-dark btn-lg">Go!</button>
-                
+
                 </form>
             </div>
             <!--<form>
@@ -67,10 +67,11 @@
                 <button type="button" class="btn btn-secondary btn-lg mt-2">Go!</button>
                 
             </form>-->
-
         </main>
-        <div class="cardContainer">
-            <!-- <div class="card">
+        <div class="flex-row justify-space-between" id="resultsContainer">
+            <div class="cardContainer col-12 col-md-8" id="cardContainer">
+                <p>Cards</p>
+                <!-- <div class="card">
                 <div class="card-header">
                     Card header
                 </div>
@@ -81,6 +82,11 @@
                     Card Footer
                 </div>
             </div> -->
+            </div>
+            <div class="mapContainer col-12 col-md-4">
+                <p>Maps</p>
+                <div id="map"></div>
+            </div>
         </div>
 
     </div>
@@ -92,6 +98,9 @@
     <!-- Include Date Range Picker -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANAjuOTjkuBzDM-pTfPuUXlNBv48gImkA&libraries=places&v=weekly"
+        async></script>
     <script src="./assets/js/script.js"></script>
 
 </body>

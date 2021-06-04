@@ -41,6 +41,7 @@ h1 {
 .container {
   padding-top: 50px;
 }
+
 #locInput,
 #datepicker,
 #datepicker2 {
@@ -49,6 +50,18 @@ h1 {
 }
 #inputGroup-sizing-lg {
   background: var(--yellow-green-crayola);
+}
+#map {
+    height:100%;
+}
+
+.cardContainer {
+  width: 50%;
+  padding-top: 50px;
+}
+
+.card-content {
+  background-color: rgba(118, 200, 174, 0.5);
 }
 
 .card,
@@ -60,14 +73,11 @@ h1 {
   text-decoration: underline;
 }
 
-.card-content {
-  background-color: rgba(118, 200, 174, 0.5);
-}
-
 .card-footer {
   justify-content: space-around;
   font-weight: bolder;
 }
+
 /* Search Bar*/
 /* 
 .search-container {
