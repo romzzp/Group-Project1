@@ -20,16 +20,16 @@
 </head>
 
 <body>
-    <div class="space"></div>
     <div class="mainDiv">
+        <!-- Header -->
         <header>
             <h1>Plan Your Vacation</h1>
         </header>
 
         <main>
+            <!-- SUBMIT FORM CONTAINER -->
             <div class="container col-8">
                 <form>
-                    <!-- <div class="search-container"> -->
                     <div class="input-group input-group-lg">
                         <span class="input-group-text" id="inputGroup-sizing-lg">Destination</span>
                         <input type="text" class="form-control" id="locInput" aria-label="Sizing example input"
@@ -40,67 +40,32 @@
                         <span class="input-group-text" id="inputGroup-sizing-lg">Date To</span>
                         <input type="text" class="form-control" id="datepicker2" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-lg">
-                        <!-- <input type="text" placeholder="Depart" name="daterange" class="form-control date-picker"
-                            id="date-picker" />
-                        <input type="text" placeholder="Return" name="daterange" class="form-control date-picker-2"
-                            id="date date-picker-2" /> -->
                     </div>
                     <br>
 
                     <button type="submit" id="submitBtn" class="search-button btn btn-outline-dark btn-lg">Go!</button>
-
                 </form>
             </div>
-            <!--<form>
-                <div class="input-group input-group-lg">
-                    <span class="input-group-text" id="inputGroup-sizing-lg">Enter Destination</span>
-                    <input type="text" class="form-control" id="locInput" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-lg">
-                </div>
-
-
-                <button type="button" id='submitBtn' class="btn btn-secondary btn-lg mt-2">Go!</button>
-
-            </form>
-        </div>
-
-                <button type="button" class="btn btn-secondary btn-lg mt-2">Go!</button>
-                
-            </form>-->
         </main>
+
+        <!-- RESULTS CONTAINER -->
         <div class="flex-row justify-space-between" id="resultsContainer">
+            <!-- CARD CONTAINER -->
             <div class="cardContainer col-12 col-md-8" id="cardContainer">
                 <div id="dynamicCard">
-                    <p>Cards</p>
                 </div>
-
-                <!-- <div class="card">
-                <div class="card-header">
-                    Card header
-                </div>
-                <div class="card-content p-2">
-                    Card with header and footer...
-                </div>
-                <div class="card-footer">
-                    Card Footer
-                </div>
-            </div> -->
             </div>
+            <!-- MAP CONTAINER -->
             <div class="mapContainer">
-                <p>Maps</p>
                 <div id="map"></div>
             </div>
         </div>
 
     </div>
-
-    <footer>
-
-    </footer>
-
     <!-- Include Date Range Picker -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- GOOGLE MAPS API LIBRARY -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANAjuOTjkuBzDM-pTfPuUXlNBv48gImkA&libraries=places&v=weekly"
         async></script>
