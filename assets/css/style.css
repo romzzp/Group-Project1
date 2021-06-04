@@ -56,7 +56,7 @@ h1 {
 }
 
 .cardContainer {
-  width: 40%;
+  width: 50%;
   padding-top: 50px;
 }
 
@@ -135,7 +135,7 @@ input {
 }
 
 #submitBtn:hover {
-  background-color: var(--key-lime);
+  background-color: var(--yellow-green-crayola);
   color: var(--yale-blue);
   border-color: var(--yale-blue);
 }
