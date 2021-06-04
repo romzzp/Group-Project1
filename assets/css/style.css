@@ -135,7 +135,7 @@ input {
 }
 
 #submitBtn:hover {
-  background-color: var(--key-lime);
+  background-color: var(--yellow-green-crayola);
   color: var(--yale-blue);
   border-color: var(--yale-blue);
 }
