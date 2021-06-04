@@ -54,6 +54,30 @@ h1 {
 #map {
     height:100%;
 }
+
+.cardContainer {
+  width: 50%;
+  padding-top: 50px;
+}
+
+.card-content {
+  background-color: rgba(118, 200, 174, 0.5);
+}
+
+.card,
+.card-header {
+  background: transparent;
+}
+.card-header {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.card-footer {
+  justify-content: space-around;
+  font-weight: bolder;
+}
+
 /* Search Bar*/
 /* 
 .search-container {
