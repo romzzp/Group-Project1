@@ -28,7 +28,7 @@ so that when I arrive, I am in the hotspot to explore the city and not waste tim
 ## Mockup
 
 The following animation demonstrates the application functionality:
-![A user clicks through website, then puts in the desired location and hotels shows up. User can then select the hotel they want to 9 in and the map will show up on the right side.](.\assets\images\plan_vacation_demo.gif)
+![A user clicks through website, then puts in the desired location and hotels shows up. User can then select the hotel they want to 9 in and the map will show up on the right side.](./assets/images/plan_vacation_demo.gif)
 
 
 How to: 
