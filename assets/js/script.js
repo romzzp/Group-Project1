@@ -1,13 +1,17 @@
 //JQuery Date Picker
 //Date picker 1
 $(function () {
-    $("#datepicker").datepicker();
+    $("#datepicker").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
 }
 );
 
 //Date picker 2
 $(function () {
-    $("#datepicker2").datepicker();
+    $("#datepicker2").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
 }
 );
 
@@ -15,8 +19,8 @@ $(function () {
 // // ELISONS PORTION
 // ELEMENT SELECTORS
 var locInputEl = document.querySelector('#locInput');
-// var dateInEl = document.querySelector('#[CHECK-IN-DATE-ID]');
-// var dateOutEl = document.querySelector('#[CHECK-OUT-DATE-ID');
+var dateInEl = document.querySelector('#datepicker');
+var dateOutEl = document.querySelector('#datepicker2');
 var resultEl = document.querySelector('#cardContainer')
 var buttonEl = document.querySelector('#submitBtn');
 var mapDivEl = document.getElementById("map")
@@ -24,8 +28,8 @@ var choiceEl
 
 // VARIABLES
 var locInput;
-var checkInDate = "2021-01-27"; // change so not hardcoded
-var checkOutDate = "2021-01-28"; // change so not hardcodded
+var checkInDate ; // change so not hardcoded
+var checkOutDate ; // change so not hardcodded
 var roomNum = "1";
 var map;
 var service;
@@ -37,9 +41,8 @@ function formSubmitHandler(event) {
     event.preventDefault();
 
     locInput = locInputEl.value.trim();
-    // populate datein
-    // populate dateout
-    // populate roomnum
+    checkInDate = dateInEl.value.trim();
+    checkOutDate = dateInEl.value.trim();
 
     geocodeApiFunc(locInput);
     choiceEl = document.querySelectorAll(".choice-btn");
