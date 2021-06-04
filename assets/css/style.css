@@ -132,8 +132,9 @@ input {
 #submitBtn {
   padding-left: 100px;
   padding-right: 100px;
-  color: var(--yale-blue);
-  border-color: var(--yale-blue);
+  color: white;
+  border-color: white;
+  font-size: 25px;
 }
 
 #submitBtn:hover {
