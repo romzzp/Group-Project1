@@ -24,16 +24,18 @@ var resultEl = document.querySelector('#cardContainer')
 var buttonEl = document.querySelector('#submitBtn');
 var mapDivEl = document.getElementById("map")
 var dynaEl = document.querySelector("#dynamicCard")
-var choiceEl 
+var choiceEl
 
 // VARIABLES
 var locInput;
-var checkInDate ; 
-var checkOutDate ; 
+var checkInDate;
+var checkOutDate;
 var roomNum = "1";
 var map;
 var service;
 var infowindow;
+var hotelList = []
+var hotelListSave = []
 
 
 
@@ -69,10 +71,10 @@ function hotelApiFunc(lat, lon, checkin, checkout, rooms) {
     })
         .then(function (response) {
             response.json().then(function (responsejson) {
-                var hotelList = responsejson.data.body.searchResults.results;
+                hotelList = responsejson.data.body.searchResults.results;
                 console.log(hotelList);
                 for (var i = 0; i < hotelList.length; i++) {
-                    createHotelCard(hotelList[i])
+                    createHotelCard(hotelList[i], i)
                 }
             })
         })
@@ -106,15 +108,14 @@ function hotelApiFunc(lat, lon, checkin, checkout, rooms) {
 // }
 
 // function to create the hotel cards
-function createHotelCard(hotel) {
-    // data to be used later
+function createHotelCard(hotel, hotelNum) {
     var hotelId = hotel.id;
     var hLat = hotel.coordinate.lat
     var hLon = hotel.coordinate.lon
     var pstl = hotel.address.postalCode
     // ignore cases
     if (!pstl) {
-        return;    
+        return;
     }
 
     var address = hotel.address.streetAddress;
@@ -155,6 +156,7 @@ function createHotelCard(hotel) {
     cardDiv.setAttribute("data-lat", hLat);
     cardDiv.setAttribute("data-lon", hLon)
     cardDiv.setAttribute("data-pstl", pstl)
+    cardDiv.setAttribute("data-objNum", hotelNum)
 
     var cardHeader = document.createElement('div');
     cardHeader.setAttribute('class', 'card-header');
@@ -166,7 +168,10 @@ function createHotelCard(hotel) {
     cardFooter.setAttribute('class', 'card-footer');
 
     var cardBtn = document.createElement('button')
+
+ 
     cardBtn.setAttribute('class', 'choice-btn btn btn-outline-primary');
+
 
     dynaEl.append(cardDiv);
     cardDiv.append(cardHeader);
@@ -182,12 +187,12 @@ function createHotelCard(hotel) {
 
 
 // function to render the google maps api
-function displayMap(lat, lng, pstl){
+function displayMap(lat, lng, pstl) {
     var hotelArea = new google.maps.LatLng(lat, lng);
     infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(mapDivEl, {
         center: hotelArea,
-        zoom:15
+        zoom: 15
     })
     var request = {
         query: pstl,
@@ -206,21 +211,21 @@ function displayMap(lat, lng, pstl){
         location: hotelArea,
         radius: 1500,
         keyword: "POI",
-    }, function(results, status) {
+    }, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK && results) {
             for (let i = 0; i < results.length; i++) {
                 createMarker(results[i]);
             }
         }
-    }) 
+    })
     console.log('done');
 }
 
 
 //  Function to create markers on map
 function createMarker(place) {
-    if (!place.geometry || !place.geometry.location){
-          return;
+    if (!place.geometry || !place.geometry.location) {
+        return;
     }
     var marker = new google.maps.Marker({
         map,
@@ -235,9 +240,9 @@ function formSubmitHandler(event) {
     locInput = locInputEl.value.trim();
     checkInDate = dateInEl.value.trim();
     checkOutDate = dateInEl.value.trim();
-    
 
-    if (!locInput || !checkInDate || !checkOutDate){
+
+    if (!locInput || !checkInDate || !checkOutDate) {
         return;
     }
 
@@ -248,24 +253,45 @@ function formSubmitHandler(event) {
 
     geocodeApiFunc(locInput);
     choiceEl = document.querySelectorAll(".choice-btn");
-    resultEl.addEventListener("click", chooseHotelClick);
+
 }
 
 // event handler for when hotel card button is clicked
-function chooseHotelClick(event){
+function chooseHotelClick(event) {
     var targetClass = event.target.getAttribute("class");
-    if (targetClass !== "choice-btn"){
+    if (targetClass !== "choice-btn") {
         return;
     }
+    hotelListSave = hotelList
     var cardContainer = event.target.parentElement;
     console.log(cardContainer);
     var hotelId = cardContainer.getAttribute("data-hotel-id");
     var lat = cardContainer.getAttribute("data-lat");
     var lon = cardContainer.getAttribute("data-lon");
     var pstl = cardContainer.getAttribute("data-pstl");
+    var hotelNum = cardContainer.getAttribute("data-objNum");
+    saveData(hotelNum);
     displayMap(lat, lon, pstl);
 }
 
+// function to save last clicked hotel to local storage
+function saveData(hotelNum) {
+    localStorage.setItem("lastInput", JSON.stringify(hotelListSave[hotelNum]));
+}
+
+function getData() {
+    var lastInputStr = localStorage.getItem("lastInput");
+
+    if (!lastInputStr) {
+        return;
+    }
+
+    var lastInput = JSON.parse(lastInputStr);
+    hotelList.push(lastInput)
+    createHotelCard(lastInput, 0);
+}
 
 // EVENT LISTENERS
 buttonEl.addEventListener('click', formSubmitHandler);
+resultEl.addEventListener("click", chooseHotelClick);
+getData();
