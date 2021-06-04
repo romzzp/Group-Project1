@@ -65,7 +65,7 @@ function hotelApiFunc(lat, lon, checkin, checkout, rooms) {
     fetch("https://hotels-com-free.p.rapidapi.com/srle/listing/v1/brands/hotels.com?lat=" + lat + "&lon=" + lon + "&checkIn=" + checkin + "&checkOut=" + checkout + "&rooms=" + rooms + "&locale=en_US&currency=CAD&pageNumber=1", {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "8d865802b7msh2e691d434973416p1b41cejsnb0d8a7dd6a50",
+            "x-rapidapi-key": "475606eb04msh3305527aef63460p1ea2ccjsn5d20c76f0ac9",
             "x-rapidapi-host": "hotels-com-free.p.rapidapi.com"
         }
     })
