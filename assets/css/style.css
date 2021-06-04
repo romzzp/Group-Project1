@@ -83,9 +83,18 @@ h1 {
   justify-content: space-around;
 }
 
-/* .choice-btn {
+.choice-btn {
+  margin: 5px 0px 5px 0px;
+  color: var(--yale-blue);
+  border-color: var(--yale-blue);
+  background-color: white;
+}
 
-} */
+.choice-btn:hover {
+  color: var(--yellow-green-crayola);
+  border-color: var(--yellow-green-crayola);
+  background-color: var(--yale-blue);
+}
 
 .show {
   display: block;
