@@ -23,12 +23,15 @@ body {
 .mainDiv {
   backdrop-filter: blur(15px);
 }
-.space {
-  padding-top: 300px;
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
 }
-.cardContainer {
-  width: 50%;
-  padding-top: 50px;
+
+.mapContainer {
+  width: 500px;
+  height: 500px;
 }
 
 h1 {
